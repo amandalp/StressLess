@@ -1,0 +1,46 @@
+<ion-view view-title="Settings" class="padding">
+  <ion-content>
+  	<div class="list">
+		  <a class="item item-icon-left" href="#/tab/profile">
+		    <i class="icon ion-ios-person-outline"></i>
+		    My Profile
+		  </a>
+      <a class="item item-icon-left" href="#/tab/friends">
+        <i class="icon ion-ios-people-outline"></i>
+        Contacts
+      </a>
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-pulse"></i>
+        Trends
+      </a>
+		  <a class="item item-icon-left" href="#/defenses">
+		    <i class="icon ion-ios-color-wand-outline"></i>
+		    Defenses
+		  </a>
+      <a class="item item-icon-left" href="#/triggers">
+        <i class="icon ion-ios-flag-outline"></i>
+        Triggers
+      </a> 
+      <a class="item item-icon-left" href="#/about">
+        <i class="icon ion-ios-information-outline"></i>
+        About
+      </a> 
+		</div>
+
+
+    <ion-list>
+      <!-- <ion-item class="item-toggle">
+        Enable Contacts
+        <label class="toggle">
+          <input type="checkbox" ng-model="settings.enableFriends">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item> -->
+      <ion-item class="button button-full button-outline button-dark" ng-click="logout()">
+        Logout
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

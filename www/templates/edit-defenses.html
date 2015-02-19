@@ -1,0 +1,27 @@
+<ion-view title="Edit Defenses" class="padding">
+  <ion-content class="has-header">
+    <form ng-submit="addSession(newUser)">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="e.g., Take 5 deep breaths" ng-model="newUser.username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="e.g., Change location" ng-model="newUser.password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="e.g., Go for a walk" ng-model="newUser.password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="e.g., Stretch!" ng-model="newUser.password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="e.g., Repeat outloud affirmations" ng-model="newUser.password">
+        </label>
+        <div class="button-bar">
+          <button class="button button-block button-outline button-dark" type="submit">Save</button>
+          <button class="button button-block button-outline button-assertive" href="#/tab-settings">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

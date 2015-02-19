@@ -1,0 +1,57 @@
+.signup-background {
+	background: url('../images/signup-background.png') no-repeat;
+}
+.signup {
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	font-family: Dosis;
+}
+
+.stressless {
+	color: white;
+	font-size: 72px;
+	font-family: Dosis;
+	text-align: center;
+
+}
+
+.title {
+	font-family: Dosis;
+}
+
+.cover-photo {
+	background: url('../images/cover-photo.png') no-repeat;
+	color: white;
+	font-family: Dosis;
+	font-size: 40px;
+}
+
+.item-body {
+	font-family: Dosis;
+}
+
+.item-divider {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.about {
+	font-family: Dosis;
+}
+
+.list {
+	font-family: Dosis;
+}
+
+.button {
+	font-family: Dosis;
+}
+
+.col {
+	font-family: Dosis;
+	font-size: 16px;
+}
