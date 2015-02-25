@@ -2,13 +2,31 @@ angular.module('panicapp.controllers', [])
 
 .controller("AppCtrl", function($scope, $ionicModal, $timeout, $http, $rootScope, $state) {
   $scope.user = $rootScope.current_user;
-  return $scope.logout = function() {
+  $scope.logout = function() {
     console.log($rootScope);
-    return $http["delete"]("http://localhost:3000/sessions/" + $rootScope.current_user.id + ".json").success(function(data) {
+    $http.delete("http://localhost:3000/sessions/" + $rootScope.current_user.id + ".json")
+    .success(function(data) {
       return $state.go('main');
+    })
+    .error(function(data) {
+      alert("Couldn't delete thing!")
+    });
+  }
+
+
+  
+  $scope.sendAlert = function() {
+    console.log($rootScope)
+    $http.post("http://localhost:3000/users/" + $rootScope.current_user.id + "/alert_all_contacts")
+    .success(function() {
+      $state.go('checkin-defense')
+    })
+    .error(function() {
+      alert("Sorry, couldn't send text messages");
     });
   }
 })
+
 
 .controller("UsersCtrl", [
   "$scope", "$http", '$stateParams', '$state', '$location', '$rootScope', 'User', function($scope, $http, $stateParams, $state, $location, $rootScope, User) {
@@ -36,7 +54,7 @@ angular.module('panicapp.controllers', [])
 ])
 
 .controller('DefenseCheckinCtrl', function($scope) {
-  console.log("im here")
+  console.log("im here at the Defense check in")
   $scope.defenseSubmit = function() {
     // return $http.post("http://localhost:3000/")
     console.log("im clicking");
@@ -48,7 +66,7 @@ angular.module('panicapp.controllers', [])
 })
 
 .controller('TriggerCheckinCtrl', function($scope) {
-  console.log("im here")
+  console.log("im here at trigger check in")
   $scope.triggerSubmit = function() {
     // return $http.post("http://localhost:3000/")
     console.log("im clicking");
@@ -58,7 +76,7 @@ angular.module('panicapp.controllers', [])
 })
 
 .controller('MoodCheckinCtrl', function($scope, $http) {
-  console.log("im here")
+  console.log("im here at mood check in")
   $scope.moodSubmit = function() {
     console.log("im clicking");
     
@@ -67,7 +85,21 @@ angular.module('panicapp.controllers', [])
 
 .controller('HomeCtrl', function($scope) {})
 
-.controller('HistoryCtrl', function($scope) {})
+
+
+.controller('HistoryCtrl', function($scope, $http, $rootScope, $state) {
+  $scope.user = $rootScope.current_user;
+  return $scope.sendAlert = function() {
+    console.log($rootScope)
+    $http.post("http://localhost:3000/users/" + $rootScope.current_user.id + "/alert_all_contacts")
+    .success(function() {
+      $state.go('checkin-defense')
+    })
+    .error(function() {
+      alert("Sorry, couldn't send text messages");
+    });
+  }
+})
 
 .controller('FriendsCtrl', function($scope, Friends) {
   $scope.friends = Friends.all();
