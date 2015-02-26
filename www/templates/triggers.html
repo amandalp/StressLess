@@ -1,11 +1,12 @@
 <ion-view view-title="Triggers">
-  <ion-content class="padding">
-  	<div class="list">
-  	  <a class="item">Feeling lately it's not a big deal</a>
-  	  <a class="item">Got bored</a>
-  	  <a class="item">I don't know</a>
-  	</div>
-    <a class="button button-block button-outline button-dark" href="#/edit-triggers">Edit Triggers</a>     
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="trigger in triggers" type="item-text-wrap">
+        <h2>{{ trigger.body }}</h2>
+        <ion-option-button class="button-energized" ng-click="edit(chat)">
+          Edit
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
-

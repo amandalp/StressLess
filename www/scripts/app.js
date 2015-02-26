@@ -118,24 +118,29 @@ angular.module('panicapp', ['ionic', 'panicapp.controllers', 'panicapp.services'
   })
   .state('triggers', {
     url: '/triggers',
-    templateUrl: 'templates/triggers.html'  
+    templateUrl: 'templates/triggers.html',
+    controller: 'TriggersCtrl'  
   })
   .state('moods', {
     url: '/moods',
     templateUrl: 'templates/moods.html',
     controller: 'MoodCheckinCtrl'
-  }).state('checkin-defense', {
+  })
+  .state('checkin-defense', {
     url: '/checkin-defense',
     templateUrl: 'templates/checkin-defense.html',
     controller: 'DefenseCheckinCtrl'
-  }).state('checkin-triggers', {
+  })
+  .state('checkin-triggers', {
     url: '/checkin-triggers',
     templateUrl: 'templates/checkin-triggers.html',
     controller: 'TriggerCheckinCtrl'
-  }).state('loggedin', {
+  })
+  .state('loggedin', {
     url: '/loggedin',
     templateUrl: 'templates/loggedin.html',
-  }).state('about', {
+  })
+  .state('about', {
     url: '/about',
     templateUrl: 'templates/about.html',
   });

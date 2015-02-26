@@ -78,12 +78,12 @@ angular.module('panicapp.controllers', [])
   // });
 })
 
-.controller('Defenses1Ctrl', function($scope, Defense) {
-  $scope.defenses = Defense.query();
-})
-
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friend) {
   $scope.friend = Friend.query($stateParams.friendId);
+})
+
+.controller('Defenses1Ctrl', function($scope, Defense) {
+  $scope.defenses = Defense.query();
 })
 
 .controller('DefenseCheckinCtrl', function($scope, Defense) {
@@ -91,14 +91,14 @@ angular.module('panicapp.controllers', [])
   $scope.defenses = Defense.query();
 })
 
-.controller('TriggerCheckinCtrl', function($scope) {
+.controller('TriggersCtrl', function($scope, Trigger) {
+  $scope.triggers = Trigger.query();
+})
+
+.controller('TriggerCheckinCtrl', function($scope, Trigger) {
   console.log("im here at trigger check in")
-  $scope.triggerSubmit = function() {
-    // return $http.post("http://localhost:3000/")
-    console.log("im clicking");
-    // post the data into the backend. http.post('route', {mood: value})
-    //console values that were chosen.
-  }
+  $scope.triggers = Trigger.query();
+  console.log("I did my trigger check in")
 })
 
 .controller('MoodCheckinCtrl', function($scope, $http) {

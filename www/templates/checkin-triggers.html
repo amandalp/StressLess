@@ -1,5 +1,20 @@
 <ion-view view-title="Check In: Triggers">
   <ion-content>
+  <ul class="list" ng-repeat="trigger in triggers">
+    <li class="item item-checkbox">
+      <label class="checkbox">
+        <input type="checkbox">
+      </label>
+      {{trigger.body}}
+    </li>
+  </ul>
+  <a class="button button-block button-outline button-dark" href="#/loggedin">Submit</a>
+  </ion-content>
+</ion-view>
+
+
+<!-- <ion-view view-title="Check In: Triggers">
+  <ion-content>
   <ul class="list">
 	  <li class="item item-checkbox">
 	     <label class="checkbox">
@@ -20,8 +35,7 @@
 	     I don't know
 	  </li>
 		</br>
-		<!-- <button type="submit" value="Submit" class="button button-full button-calm" ng-click="triggerSubmit()">Submit</button> -->
 		<a class="button button-block button-outline button-dark" href="#/loggedin">Submit</a>
 	</ul>
 	</ion-content>
-</ion-view>
+</ion-view> -->
