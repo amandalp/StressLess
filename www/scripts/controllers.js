@@ -12,9 +12,6 @@ angular.module('panicapp.controllers', [])
       alert("Couldn't delete thing!")
     });
   }
-
-
-  
   $scope.sendAlert = function() {
     console.log($rootScope)
     $http.post("http://localhost:3000/users/" + $rootScope.current_user.id + "/alert_all_contacts")
@@ -26,7 +23,6 @@ angular.module('panicapp.controllers', [])
     });
   }
 })
-
 
 .controller("UsersCtrl", [
   "$scope", "$http", '$stateParams', '$state', '$location', '$rootScope', 'User', function($scope, $http, $stateParams, $state, $location, $rootScope, User) {
@@ -52,6 +48,35 @@ angular.module('panicapp.controllers', [])
     };
   }
 ])
+
+.controller('FriendsCtrl', function($scope, Friends, $ionicModal) {
+  $scope.friends = Friends.query();
+
+  // $ionicModal.fromTemplateUrl('edit-contacts-modal.html', {
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function(modal) {
+  //   $scope.modal = modal;
+  // });
+  // $scope.openModal = function() {
+  //   $scope.modal.show();
+  // };
+  // $scope.closeModal = function() {
+  //   $scope.modal.hide();
+  // };
+  // //Cleanup the modal when we're done with it!
+  // $scope.$on('$destroy', function() {
+  //   $scope.modal.remove();
+  // });
+  // // Execute action on hide modal
+  // $scope.$on('modal.hidden', function() {
+  //   // Execute action
+  // });
+  // // Execute action on remove modal
+  // $scope.$on('modal.removed', function() {
+  //   // Execute action
+  // });
+})
 
 .controller('DefenseCheckinCtrl', function($scope) {
   console.log("im here at the Defense check in")
@@ -87,23 +112,9 @@ angular.module('panicapp.controllers', [])
 
 
 
-.controller('HistoryCtrl', function($scope, $http, $rootScope, $state) {
-  $scope.user = $rootScope.current_user;
-  return $scope.sendAlert = function() {
-    console.log($rootScope)
-    $http.post("http://localhost:3000/users/" + $rootScope.current_user.id + "/alert_all_contacts")
-    .success(function() {
-      $state.go('checkin-defense')
-    })
-    .error(function() {
-      alert("Sorry, couldn't send text messages");
-    });
-  }
-})
+.controller('HistoryCtrl', function($scope, $http, $rootScope, $state) {})
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
-})
+
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
   $scope.friend = Friends.get($stateParams.friendId);

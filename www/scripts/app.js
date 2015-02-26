@@ -1,4 +1,4 @@
-angular.module('panicapp', ['ionic', 'panicapp.controllers', 'panicapp.services', 'panicapp.factories'])
+angular.module('panicapp', ['ionic', 'panicapp.controllers', 'panicapp.services', 'panicapp.factories', 'ngResource'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

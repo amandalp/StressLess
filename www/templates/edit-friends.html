@@ -1,0 +1,22 @@
+<ion-view title="Edit Friends" class="padding">
+  <ion-content class="has-header">
+    <form ng-submit="addSession(newUser)">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="e.g., Didn't get enough sleep" ng-model="newUser.username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="e.g., Got bored" ng-model="newUser.password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="e.g., I don't know" ng-model="newUser.password">
+        </label>
+
+        <div class="button-bar">
+          <button class="button button-block button-outline button-dark" type="submit">Save</button>
+          <button class="button button-block button-outline button-assertive" href="#/tab-settings">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

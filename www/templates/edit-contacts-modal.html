@@ -1,0 +1,21 @@
+<ion-view view-title="Edit Contacts">	
+	<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Edit Contacts</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <label class="item item-input">
+          <input type="name" placeholder="John Smith" ng-model="newUser.username">
+        </label>
+        <label class="item item-input">
+          <input type="phone" placeholder="555-555-5555" ng-model="newUser.password">
+        </label>
+        <div class="button-bar">
+          <button class="button button-block button-outline button-dark" type="submit">Save</button>
+          <button class="button button-block button-outline button-assertive" href="#/tab-settings">Cancel</button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</ion-view>
