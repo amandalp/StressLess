@@ -1,13 +1,12 @@
 <ion-view view-title="Defenses">
-  <ion-content class="padding">
-  	<div class="list">
-  	  <a class="item">Move and change location</a>
-  	  <a class="item">Watch a funny youTube video</a>
-  	  <a class="item">Take 10 deep breaths</a>
-  	  <a class="item">Do 10 pushups</a>
-  	  <a class="item">Can I say no for $1M?</a>
-  	</div>
-    <a class="button button-block button-outline button-dark" href="#/edit-defenses">Edit Defenses</a>     
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="defense in defenses" type="item-text-wrap">
+        <h2>{{ defense.body }}</h2>
+        <ion-option-button class="button-energized" ng-click="edit(chat)">
+          Edit
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
-

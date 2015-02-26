@@ -110,7 +110,7 @@ angular.module('panicapp', ['ionic', 'panicapp.controllers', 'panicapp.services'
   .state('defenses', {
     url: '/defenses',
     templateUrl: 'templates/defenses.html',
-    controller: 'DefensesCtrl'
+    controller: 'Defenses1Ctrl'
   })
   .state('edit-triggers', {
     url: '/edit-triggers',

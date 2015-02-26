@@ -1,42 +1,47 @@
 angular.module('panicapp.services', [])
 
-.factory('Friends', function($resource) {
-  // Resource here that returns a JSON array
-  return $resource('http://localhost:3000/contacts/:id', {id: '@id'}, 
+.factory('Friend', function($resource) {
+  return $resource('http://localhost:3000/contacts/:id', { id: '@id' }, 
     {
       'update': { method: 'PUT' },
-      'create': { method: 'POST' },
+      'create': { method: 'POST' }
     }
   );
 })
 
-.factory('Defenses', function() {
-  var defenses = [{
-    id: 0,
-    description: 'Move and change location'
-  }, {
-    id: 1,
-    description: 'Watch a funny youTube video'
-  }, {
-    id: 2,
-    description: 'Take 10 deep breaths'
-  }, {
-    id: 3,
-    description: 'Do 10 pushups'
-  }, {
-    id: 4,
-    description: 'Can I say no for $1M?'
-  }];
-
-  return {
-    all: function() {
-      return defenses;
-    },
-    get: function(defenseId) {
-      // Simple index lookup
-      return defenses[defenseId];
+.factory('Defense', function($resource) {
+  return $resource('http://localhost:3000/defenses/:id', { id: '@id' },
+    {
+      'update': { method: 'PUT' },
+      'create': { method: 'POST' }
     }
-  }
+  );
+  // var defenses = [{
+  //   id: 0,
+  //   description: 'Move and change location'
+  // }, {
+  //   id: 1,
+  //   description: 'Watch a funny youTube video'
+  // }, {
+  //   id: 2,
+  //   description: 'Take 10 deep breaths'
+  // }, {
+  //   id: 3,
+  //   description: 'Do 10 pushups'
+  // }, {
+  //   id: 4,
+  //   description: 'Can I say no for $1M?'
+  // }];
+
+  // return {
+  //   all: function() {
+  //     return defenses;
+  //   },
+  //   get: function(defenseId) {
+  //     // Simple index lookup
+  //     return defenses[defenseId];
+  //   }
+  // }
 })
 
 .factory('Chats', function() {

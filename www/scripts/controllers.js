@@ -49,9 +49,9 @@ angular.module('panicapp.controllers', [])
   }
 ])
 
-.controller('FriendsCtrl', function($scope, Friends, $ionicModal) {
-  $scope.friends = Friends.query();
-
+.controller('FriendsCtrl', function($scope, Friend, Defense, $ionicModal) {
+  $scope.friends = Friend.query();
+  $scope.defenses = Defense.query();
   // $ionicModal.fromTemplateUrl('edit-contacts-modal.html', {
   //   scope: $scope,
   //   animation: 'slide-in-up'
@@ -76,6 +76,14 @@ angular.module('panicapp.controllers', [])
   // $scope.$on('modal.removed', function() {
   //   // Execute action
   // });
+})
+
+.controller('Defenses1Ctrl', function($scope, Defense) {
+  $scope.defenses = Defense.query();
+})
+
+.controller('FriendDetailCtrl', function($scope, $stateParams, Friend) {
+  $scope.friend = Friend.query($stateParams.friendId);
 })
 
 .controller('DefenseCheckinCtrl', function($scope) {
@@ -116,9 +124,7 @@ angular.module('panicapp.controllers', [])
 
 
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
-})
+
 
 .controller('ProfileCtrl', function($scope) {})
 
