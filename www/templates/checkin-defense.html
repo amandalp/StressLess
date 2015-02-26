@@ -1,39 +1,13 @@
 <ion-view view-title="Check In: Defenses">
   <ion-content>
-  <ul class="list">
-	  <li class="item item-checkbox">
-	     <label class="checkbox">
-	       <input type="checkbox">
-	     </label>
-	     Move and change location
-	  </li>
-	  <li class="item item-checkbox">
-	     <label class="checkbox">
-	       <input type="checkbox">
-	     </label>
-	     Watch a funny youTube video
-	  </li>
-	  <li class="item item-checkbox">
-	     <label class="checkbox">
-	       <input type="checkbox">
-	     </label>
-	     Take 10 deep breaths
-	  </li>
-	  <li class="item item-checkbox">
-	     <label class="checkbox">
-	       <input type="checkbox">
-	     </label>
-	     Do 10 pushups
-	  </li>
-	  <li class="item item-checkbox">
-	     <label class="checkbox">
-	       <input type="checkbox">
-	     </label>
-	     Can I say no for $1M?
-	  </li>
-		</br>
-		<!-- <button type="submit" value="Submit" class="button button-full button-calm" ng-click="defenseSubmit()">Submit</button> -->
-		<a class="button button-block button-outline button-dark" href="#/checkin-triggers">Submit</a>
-	</ul>
-	</ion-content>
+  <ul class="list" ng-repeat="defense in defenses">
+    <li class="item item-checkbox">
+      <label class="checkbox">
+        <input type="checkbox">
+      </label>
+      {{defense.body}}
+    </li>
+  </ul>
+  <a class="button button-block button-outline button-dark" href="#/checkin-triggers">Submit</a>
+  </ion-content>
 </ion-view>

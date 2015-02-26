@@ -86,16 +86,9 @@ angular.module('panicapp.controllers', [])
   $scope.friend = Friend.query($stateParams.friendId);
 })
 
-.controller('DefenseCheckinCtrl', function($scope) {
+.controller('DefenseCheckinCtrl', function($scope, Defense) {
   console.log("im here at the Defense check in")
-  $scope.defenseSubmit = function() {
-    // return $http.post("http://localhost:3000/")
-    console.log("im clicking");
-    return $state.go('checkin-triggers');
-    console.log("i went to triggers")
-    // post the data into the backend. http.post('route', {mood: value})
-    //console values that were chosen.
-  }
+  $scope.defenses = Defense.query();
 })
 
 .controller('TriggerCheckinCtrl', function($scope) {
