@@ -103,9 +103,9 @@ angular.module('panicapp', ['ionic', 'panicapp.controllers', 'panicapp.services'
   });
 
   $stateProvider
-  .state('edit-defenses', {
-    url: '/edit-defenses',
-    templateUrl: 'templates/edit-defenses.html'  
+  .state('edit-defenses-modal', {
+    url: '/edit-defenses-modal',
+    templateUrl: 'templates/edit-defenses-modal.html'  
   })
   .state('defenses', {
     url: '/defenses',

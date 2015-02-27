@@ -1,0 +1,18 @@
+<ion-view view-title="Edit Defenses">	
+	<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Edit Defenses</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="{{defense.body}}" ng-model="defense.body">
+        </label>
+        <div class="button-bar">
+          <button class="button button-block button-outline button-dark" ng-click="updateDefenses(defense)">Save</button>
+          <button class="button button-block button-outline button-assertive" ng-click="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</ion-view>

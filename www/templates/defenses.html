@@ -3,7 +3,7 @@
     <ion-list>
       <ion-item class="item-avatar" ng-repeat="defense in defenses" type="item-text-wrap">
         <h2>{{ defense.body }}</h2>
-        <ion-option-button class="button-energized" ng-click="openModal()">
+        <ion-option-button class="button-energized" ng-click="openModal(defense)">
           Edit
         </ion-option-button>
       </ion-item>

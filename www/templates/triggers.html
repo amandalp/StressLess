@@ -3,7 +3,7 @@
     <ion-list>
       <ion-item class="item-avatar" ng-repeat="trigger in triggers" type="item-text-wrap">
         <h2>{{ trigger.body }}</h2>
-        <ion-option-button class="button-energized" ng-click="edit(chat)">
+        <ion-option-button class="button-energized" ng-click="openModal(trigger)">
           Edit
         </ion-option-button>
       </ion-item>

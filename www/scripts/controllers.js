@@ -49,10 +49,9 @@ angular.module('panicapp.controllers', [])
   }
 ])
 
-.controller('FriendsCtrl', function($scope, Friend, Defense, $ionicModal, $http) {
+.controller('FriendsCtrl', function($scope, Friend, $ionicModal, $http) {
   $scope.friends = Friend.query();
   $scope.friend = {};
-
 
   $ionicModal.fromTemplateUrl('templates/edit-contacts-modal.html', {
     scope: $scope,
@@ -102,8 +101,43 @@ angular.module('panicapp.controllers', [])
   $scope.friend = Friend.query($stateParams.friendId);
 })
 
-.controller('Defenses1Ctrl', function($scope, Defense) {
+.controller('Defenses1Ctrl', function($scope, Defense, $ionicModal, $http) {
   $scope.defenses = Defense.query();
+  $scope.defense = {};
+
+  $ionicModal.fromTemplateUrl('templates/edit-defenses-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+    console.log($scope.modal);
+  });
+
+  $scope.openModal = function(defense) {
+     $scope.defense = defense;
+    console.log(defense);
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.updateDefenses = function() {
+    $http.put("http://localhost:3000/defenses/" + $scope.defense.id, {defense: {body: $scope.defense.body}})
+    // .success(function() {
+    //   $state.go('tab.friends')
+    // })
+    // .error(function() {
+    //   alert("Sorry, couldn't save");
+    // });
+    $scope.modal.hide();
+  }
+
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 })
 
 .controller('DefenseCheckinCtrl', function($scope, Defense) {
@@ -111,8 +145,43 @@ angular.module('panicapp.controllers', [])
   $scope.defenses = Defense.query();
 })
 
-.controller('TriggersCtrl', function($scope, Trigger) {
+.controller('TriggersCtrl', function($scope, Trigger, $ionicModal, $http) {
   $scope.triggers = Trigger.query();
+  $scope.trigger = {};
+
+  $ionicModal.fromTemplateUrl('templates/edit-triggers-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+    console.log($scope.modal);
+  });
+
+  $scope.openModal = function(trigger) {
+     $scope.trigger = trigger;
+    console.log(trigger);
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.updateTriggers = function() {
+    $http.put("http://localhost:3000/triggers/" + $scope.trigger.id, {trigger: {body: $scope.trigger.body}})
+    // .success(function() {
+    //   $state.go('tab.friends')
+    // })
+    // .error(function() {
+    //   alert("Sorry, couldn't save");
+    // });
+    $scope.modal.hide();
+  }
+
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 })
 
 .controller('TriggerCheckinCtrl', function($scope, Trigger) {
