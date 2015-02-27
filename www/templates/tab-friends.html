@@ -5,13 +5,9 @@
         <img ng-src="{{friend.face}}">
         <h2>{{ friend.name }}</h2>
         <h3>{{ friend.phone }}</h3>
-        <ion-option-button class="button-energized" ng-click="edit(chat)">
+        <ion-option-button class="button-energized" ng-click="openModal(friend)">
           Edit
         </ion-option-button>
-      </ion-item>
-      <ion-item ng-repeat="defense in defenses">
-        <h1>{{ defense.body }}</h1>
-        <p>{{ defense.id }}</p>
       </ion-item>
     </ion-list>
   </ion-content>

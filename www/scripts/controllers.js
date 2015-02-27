@@ -49,25 +49,45 @@ angular.module('panicapp.controllers', [])
   }
 ])
 
-.controller('FriendsCtrl', function($scope, Friend, Defense, $ionicModal) {
+.controller('FriendsCtrl', function($scope, Friend, Defense, $ionicModal, $http) {
   $scope.friends = Friend.query();
-  $scope.defenses = Defense.query();
-  // $ionicModal.fromTemplateUrl('edit-contacts-modal.html', {
-  //   scope: $scope,
-  //   animation: 'slide-in-up'
-  // }).then(function(modal) {
-  //   $scope.modal = modal;
-  // });
-  // $scope.openModal = function() {
-  //   $scope.modal.show();
-  // };
-  // $scope.closeModal = function() {
-  //   $scope.modal.hide();
-  // };
-  // //Cleanup the modal when we're done with it!
-  // $scope.$on('$destroy', function() {
-  //   $scope.modal.remove();
-  // });
+  $scope.friend = {};
+
+
+  $ionicModal.fromTemplateUrl('templates/edit-contacts-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+    console.log($scope.modal);
+  });
+
+  $scope.openModal = function(friend) {
+     $scope.friend = friend;
+    console.log(friend);
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.updateContact = function() {
+    $http.put("http://localhost:3000/contacts/" + $scope.friend.id, {contact: {name: $scope.friend.name, phone: $scope.friend.phone}})
+    // .success(function() {
+    //   $state.go('tab.friends')
+    // })
+    // .error(function() {
+    //   alert("Sorry, couldn't save");
+    // });
+    $scope.modal.hide();
+  }
+
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+
   // // Execute action on hide modal
   // $scope.$on('modal.hidden', function() {
   //   // Execute action

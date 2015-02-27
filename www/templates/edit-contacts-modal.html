@@ -6,14 +6,14 @@
     <ion-content>
       <div class="list">
         <label class="item item-input">
-          <input type="name" placeholder="John Smith" ng-model="newUser.username">
+          <input type="text" placeholder="{{friend.name}}" ng-model="friend.name">
         </label>
         <label class="item item-input">
-          <input type="phone" placeholder="555-555-5555" ng-model="newUser.password">
+          <input type="text" placeholder="{{friend.phone}}" ng-model="friend.phone">
         </label>
         <div class="button-bar">
-          <button class="button button-block button-outline button-dark" type="submit">Save</button>
-          <button class="button button-block button-outline button-assertive" href="#/tab-settings">Cancel</button>
+          <button class="button button-block button-outline button-dark" ng-click="updateContact(friend)">Save</button>
+          <button class="button button-block button-outline button-assertive" ng-click="closeModal()">Cancel</button>
         </div>
       </div>
     </ion-content>
